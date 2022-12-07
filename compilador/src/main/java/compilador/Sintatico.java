@@ -60,7 +60,7 @@ public class Sintatico implements Constants
             }
             else
             {
-                throw new SyntaticError("Encontrado \""+currentToken.getLexeme()+"\" "+PARSER_ERROR[x], currentToken.getPosition(), currentToken.getLine());
+                throw new SyntaticError("encontrado "+currentToken.getLexeme()+" "+PARSER_ERROR[x], currentToken.getPosition(), currentToken.getLine());
             }
         }
         else if (isNonTerminal(x))
@@ -68,7 +68,7 @@ public class Sintatico implements Constants
             if (pushProduction(x, a))
                 return false;
             else
-                throw new SyntaticError( "Encontrado \"EOF\" "+PARSER_ERROR[a], currentToken.getPosition(), currentToken.getLine());
+                throw new SyntaticError( "encontrado \"EOF\" "+PARSER_ERROR[a], currentToken.getPosition(), currentToken.getLine());
         }
         else // isSemanticAction(x)
         {

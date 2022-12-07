@@ -663,10 +663,10 @@ public interface ScannerConstants
 
     String[] SCANNER_ERROR =
     {
-        "Caractere não esperado",
+        "símbolo inválido",
         "",
         "",
-        "Erro identificando constanteString",
+        "constante String inválida ou não finalizada",
         "",
         "Erro identificando \"&&\"",
         "",
@@ -684,7 +684,7 @@ public interface ScannerConstants
         "",
         "",
         "",
-        "Erro identificando constanteChar",
+        "constante char inválida",
         "",
         "Erro identificando \"||\"",
         "",

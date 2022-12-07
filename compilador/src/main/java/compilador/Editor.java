@@ -221,8 +221,10 @@ public class Editor {
     };
 
     private EventHandler<ActionEvent> onCompile = new EventHandler<ActionEvent>() {
+
         public void handle(ActionEvent e)
-        {
+        {   
+            output.setText("");
             Lexico lexico = new Lexico(code.getText());
             Semantico semantico = new Semantico();
             Sintatico sintatico = new Sintatico();
@@ -230,17 +232,13 @@ public class Editor {
             try {
                 sintatico.parse(lexico, semantico);
 
-                output.setText("Linha           Classe          Lexame");
-                for(var token : lexico.getTokenList()){
-                    output.setText(output.getText() +"\n"+token.toString());
-                }
-                output.setText(output.getText() + "\n programa compilado com sucesso");
+                output.setText(output.getText() + "Programa compilado com sucesso");
             } catch (LexicalError e1) {
-                output.setText("Lexico: " + e1.toString());
+                output.setText(e1.toString());
             } catch (SyntaticError e1) {
-                output.setText("Sintatico: " + e1.toString());
+                output.setText(e1.toString());
             } catch (SemanticError e1) {
-                output.setText("Semantico: " + e1.toString());
+                output.setText(e1.toString());
             }
         }
     };
